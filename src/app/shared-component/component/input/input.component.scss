@@ -1,0 +1,90 @@
+.input-box {
+    position: relative;
+}
+
+.input-box:not('disabled') {
+    cursor: pointer;
+}
+
+.input-box:not('disabled'):hover {
+    border-color: #333333;
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+input {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    outline-color: transparent;
+    box-shadow: none;
+    border: 1px solid #dddddd;
+    color: #666666;
+    height: 22px;
+    line-height: 20px;
+    padding-left: 6px;
+    box-sizing: border-box;
+    float: left;
+    width: 36px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+p {
+    width: 14px;
+    float: left;
+    border: 1px solid #dddddd;
+    border-left: 0;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.input-box:not('disabled') p {
+    cursor: pointer;
+}
+
+p img {
+    display: inline-block;
+}
+
+.input-box:not('disabled') p:hover {
+    background-color: #eeeeee;
+}
+
+p span {
+    display: inline-block;
+    width: 100%;
+    height: 50%;
+    float: left;
+    font-size: 10px;
+    color: #292727;
+}
+
+p span:first-of-type {
+    height: 47%;
+    border-bottom: 1px solid #dddddd;
+}
+
+.input-box:not('disabled') p span:hover {
+    background-color: #dddddd;
+}
+
+.drop {
+    display: inline-block;
+    float: left;
+    margin-left: 3px;
+}
