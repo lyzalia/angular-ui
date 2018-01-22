@@ -1,6 +1,6 @@
 <div class="show-case-box">
     <div class="show-case">
-        <app-input [(ngModel)]="inputValue" [min]="0" [max]="10" [step]="0.01" (onChange)="inputValueChange($event)" (onChangeEnd)="inputChangeEnd($event)"></app-input>
+        <input-number [(ngModel)]="inputValue" [min]="0" [max]="10" [step]="0.01" (onChange)="inputValueChange($event)" (onChangeEnd)="inputChangeEnd($event)"></input-number>
     </div>
 </div>
 

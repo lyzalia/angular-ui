@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { InputComponent } from './component/input/input.component';
+import { InputNumberComponent } from './component/input-number/input-number.component';
 
 @NgModule({
     imports: [
@@ -10,10 +10,10 @@ import { InputComponent } from './component/input/input.component';
         FormsModule
     ],
     declarations: [
-        InputComponent
+        InputNumberComponent
     ],
     exports: [
-        InputComponent
+        InputNumberComponent
     ]
 })
 export class SharedComponentModule { }

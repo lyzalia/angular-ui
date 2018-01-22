@@ -1,19 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 export const INPUT_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => InputComponent),
+    useExisting: forwardRef(() => InputNumberComponent),
     multi: true
 };
 
 @Component({
-    selector: 'app-input',
-    templateUrl: './input.component.html',
-    styleUrls: ['./input.component.scss'],
+    selector: 'input-number',
+    templateUrl: './input-number.component.html',
+    styleUrls: ['./input-number.component.scss'],
     providers: [INPUT_VALUE_ACCESSOR]
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
+export class InputNumberComponent implements OnInit, ControlValueAccessor {
 
     @Input() min: number;
     @Input() max: number;
@@ -60,7 +61,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
     onKeyUpHandler($event) {
         $event.stopImmediatePropagation();
-        if ($event.keyCode === 13) {//enter键
+        if ($event.keyCode === 13) {
             this.focusOut($event);
         }
     }
@@ -68,36 +69,36 @@ export class InputComponent implements OnInit, ControlValueAccessor {
     addClick($event) {
         if (this.disabled) return;
         this.value = this.checkValue(this.value + this.step);
-        this.touch = setInterval(() => {
+        this.touch = Observable.timer(200, 70).subscribe(() => {
             if (this.value < this.max) {
                 this.value = this.checkValue(this.value + this.step);
                 this.onModelChange(this.value);
             } else {
                 this.value = this.max;
             }
-        }, 70);
+        });
     }
 
     addEndClick($event) {
-        clearInterval(this.touch);
+        this.touch.unsubscribe();
         this.updateValue();
     }
 
     reduceClick($event) {
         if (this.disabled) return;
         this.value = this.checkValue(this.value - this.step);
-        this.touch = setInterval(() => {
+        this.touch = Observable.timer(200, 70).subscribe(() => {
             if (this.value > this.min) {
                 this.value = this.checkValue(this.value - this.step);
                 this.onModelChange(this.value);
             } else {
                 this.value = this.min;
             }
-        }, 70);
+        });
     }
 
     reduceEndClick($event) {
-        clearInterval(this.touch);
+        this.touch.unsubscribe();
         this.updateValue();
     }
 
@@ -113,4 +114,5 @@ export class InputComponent implements OnInit, ControlValueAccessor {
         this.onModelChange(this.value);
         this.onChange.emit(this.value);
     }
+
 }
