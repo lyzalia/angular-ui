@@ -3,5 +3,9 @@
 
     .show-case {
         margin-bottom: 20px;
+
+        &.input-show-case {
+            display: flex;
+        }
     }
 }

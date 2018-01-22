@@ -20,6 +20,8 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor {
     @Input() max: number;
     @Input() step: number;
     @Input() disabled: boolean;
+    @Input() label: string;
+    @Input() unitLabel: string;
 
     @Output() onChange = new EventEmitter<any>();
     @Output() onChangeEnd = new EventEmitter<any>();
@@ -37,7 +39,7 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor {
     }
 
     writeValue(value: any) {
-        this.value = value;
+        this.value = value || 0;
     }
 
     registerOnChange(fn: Function): void {
@@ -80,6 +82,7 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor {
     }
 
     addEndClick($event) {
+        if (this.disabled) return;
         this.touch.unsubscribe();
         this.updateValue();
     }
@@ -98,6 +101,7 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor {
     }
 
     reduceEndClick($event) {
+        if (this.disabled) return;
         this.touch.unsubscribe();
         this.updateValue();
     }

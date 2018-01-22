@@ -1,6 +1,8 @@
 <div class="show-case-box">
-    <div class="show-case">
-        <input-number [(ngModel)]="inputValue" [min]="0" [max]="10" [step]="0.01" (onChange)="inputValueChange($event)" (onChangeEnd)="inputChangeEnd($event)"></input-number>
+    <div class="show-case input-show-case">
+        <input-number [(ngModel)]="inputValue" [min]="0" [max]="10" [step]="0.01" [label]="'长度'" [unitLabel]="'mm'"
+        (onChange)="inputValueChange($event)" (onChangeEnd)="inputChangeEnd($event)"></input-number>
+        <input-number [(ngModel)]="inputValue2" [label]="'disabled'" disabled></input-number>
     </div>
 </div>
 

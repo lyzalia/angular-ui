@@ -1,11 +1,14 @@
 .input-box {
-    position: relative;
-
-
+    display: flex;
+    &.disabled {
+        opacity: .5;
+    }
     input:-webkit-autofill, select:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px white inset !important;
     }
-
+    .input-content {
+        position: relative;
+    }
     input {
         outline-color: invert;
         outline-style: none;
@@ -25,16 +28,13 @@
         float: left;
         width: 36px;
     }
-
     input[type=number] {
         -moz-appearance: textfield;
     }
-
     input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
-
     p {
         width: 14px;
         float: left;
@@ -43,11 +43,9 @@
         height: 20px;
         text-align: center;
         vertical-align: middle;
-
         img {
             display: inline-block;
         }
-
         span {
             display: inline-block;
             width: 100%;
@@ -55,32 +53,31 @@
             float: left;
             font-size: 10px;
             color: #292727;
-
             &:first-of-type {
                 height: 47%;
                 border-bottom: 1px solid #dddddd;
             }
         }
     }
-
+    .input-number-unit, .input-number-label {
+        line-height: 22px;
+        font-size: 14px;
+        padding: 0 7px;
+    }
     &:not('disabled') {
         cursor: pointer;
         &:hover {
             border-color: #333333;
         }
-
-        p  {
+        p {
             cursor: pointer;
-
             &:hover {
                 background-color: #eeeeee;
             }
-
             span:hover {
                 background-color: #dddddd;
             }
         }
-
     }
 }
 

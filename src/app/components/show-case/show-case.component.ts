@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ShowCaseComponent implements OnInit {
 
     public inputValue: number = 0;
+    public inputValue2: number = 0;
 
     constructor() { }
 

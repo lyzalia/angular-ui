@@ -1,8 +1,13 @@
 <div class="input-box" [class.disabled]="disabled">
-    <input type="number" [(ngModel)]="value" (blur)="focusOut($event)" (keyup)="onKeyUpHandler($event)" [attr.min]="min"
-        [attr.max]="max" [attr.step]="step" [attr.disabled]="disabled" (change)="updateValue()">
-    <p>
-        <span class="iconfont icon-shang" (mousedown)="addClick($event)" (mouseup)="addEndClick($event)"></span>
-        <span class="iconfont icon-xia" (mousedown)="reduceClick($event)" (mouseup)="reduceEndClick($event)"></span>
-    </p>
+    <span *ngIf="label" class="input-number-label">{{label}}</span>
+
+    <div class="input-content">
+        <input type="number" [(ngModel)]="value" (blur)="focusOut($event)" (keyup)="onKeyUpHandler($event)" [attr.min]="min" [attr.max]="max" [attr.step]="step" [attr.disabled]="disabled" (change)="updateValue()">
+        <p>
+            <span class="iconfont icon-shang" (mousedown)="addClick($event)" (mouseup)="addEndClick($event)"></span>
+            <span class="iconfont icon-xia" (mousedown)="reduceClick($event)" (mouseup)="reduceEndClick($event)"></span>
+        </p>
+    </div>
+
+    <span *ngIf="unitLabel" class="input-number-unit">{{unitLabel}}</span>
 </div>
