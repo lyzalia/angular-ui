@@ -1,0 +1,6 @@
+<div class="input-range-combined-box" [class.disabled]="disabled">
+    <span *ngIf="label">{{label}}</span>
+    <input type="range" [(ngModel)]="value" min={{min}} max={{max}} step={{step}} disabled={{disabled}} (change)="changeRangeValue($event)">
+    <input-number [(ngModel)]="value" [min]="min" [max]="max" [step]="step" [unitLabel]="unitLabel" [disabled]="disabled"
+        (onChange)="inputValueChange($event)" (onChangeEnd)="inputChangeEnd($event)"></input-number>
+</div>

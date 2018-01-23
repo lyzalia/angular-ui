@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { InputNumberComponent } from './component/input-number/input-number.component';
+import { InputRangeCombinedComponent } from './component/input-range-combined/input-range-combined.component';
 
 @NgModule({
     imports: [
@@ -10,10 +11,12 @@ import { InputNumberComponent } from './component/input-number/input-number.comp
         FormsModule
     ],
     declarations: [
-        InputNumberComponent
+        InputNumberComponent,
+        InputRangeCombinedComponent
     ],
     exports: [
-        InputNumberComponent
+        InputNumberComponent,
+        InputRangeCombinedComponent
     ]
 })
 export class SharedComponentModule { }
